@@ -1,0 +1,22 @@
+{
+    "name": "phil0105/sae2-01",
+    "description": "Développement d'une application",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexandre Philippe",
+            "email": "alexandre.philippe@etudiant.univ-reims.fr"
+        },
+        {
+            "name": "Raphaël Durand",
+            "email": "raphael.durand1@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {}
+}
