@@ -18,5 +18,7 @@
             "email": "raphael.durand1@etudiant.univ-reims.fr"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-pdo": "*"
+    }
 }
