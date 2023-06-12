@@ -91,7 +91,7 @@ class Movie
 * @param int|null $id
 * @return Movie
  */
-        public static function findById(?int $id): Movie
+        public static function findById(int $id): Movie
         {
             $stmt = MyPDO::getInstance()->prepare(
                 <<<'SQL'
