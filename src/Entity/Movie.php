@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
+use PDO;
+
 class Movie
 {
     private int $posterId;
@@ -70,5 +74,23 @@ class Movie
     public function getTitle(): string
     {
         return $this->title;
+    }
+    public static function findById(int $id): Movie
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+    SELECT *
+    FROM movie
+    WHERE id=:id
+SQL
+        );
+        $stmt->execute(["id"=>$id]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, movie::class);
+        if (($result = $stmt->fetch()) !== false) {
+            return $result;
+        } else {
+            throw new EntityNotFoundException("Le film demandé est introuvable");
+        }
+
     }
 }
