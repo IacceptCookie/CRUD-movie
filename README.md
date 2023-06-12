@@ -36,3 +36,15 @@ composer start:windows
 ```
 composer start
 ```
+
+### PHP CS Fixer
+
+* pour tester le formatage du code : 
+```
+composer test:cs
+```
+
+* pour corriger le formatage du code :
+```
+composer fix:cs
+```
