@@ -101,7 +101,7 @@ class Movie
 SQL
             );
             $stmt->execute(["id"=>$id]);
-            $stmt->setFetchMode(PDO::FETCH_CLASS, movie::class);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, Movie::class);
             if (($result = $stmt->fetch()) !== false) {
                 return $result;
             } else {
