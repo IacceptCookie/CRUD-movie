@@ -11,6 +11,14 @@ use PDO;
 
 class MovieCollection
 {
+    /** Classe MovieCollection. Elle n'a aucun attribut et possède deux méthodes de classes qui sont findAll et findByPeopleId
+    *
+     */
+
+
+    /** Méthode de classe MovieCOllection. Elle permet de récupérer un tableau qui contient tous les films.
+* @return array
+     */
     public static function findAll(): array
     {
         $stmt = MyPDO::getInstance()->prepare(
@@ -25,6 +33,10 @@ SQL
         return $stmt->fetchAll(PDO::FETCH_CLASS, Movie::class);
     }
 
+    /** Méthode de classe MovieCollection. Elle permet de récupérer un tableau qui contient tous les films d'une personne grâce
+     * à son peopleId.
+     * @return array
+     */
     public static function findByPeopleId(int $peopleId): array
     {
         $stmt = MyPDO::getInstance()->prepare(
