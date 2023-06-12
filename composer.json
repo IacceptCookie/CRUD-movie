@@ -18,6 +18,17 @@
             "email": "raphael.durand1@etudiant.univ-reims.fr"
         }
     ],
+    "scripts": {
+        "start": "@start:linux",
+        "start:linux": [
+            "Composer\\Config::disableProcessTimeout",
+            "bin/run-server.sh"
+        ],
+        "start:windows": [
+            "Composer\\Config::disableProcessTimeout",
+            "bin/run-server.bat"
+        ]
+    },
     "require": {
         "ext-pdo": "*"
     },
