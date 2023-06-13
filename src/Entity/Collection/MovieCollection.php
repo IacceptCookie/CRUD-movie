@@ -44,7 +44,7 @@ SQL
     SELECT DISTINCT m.id, posterId, originalLanguage, originalTitle, overview, releaseDate, runtime, tagline, title
     FROM movie m
         JOIN cast c ON m.id=c.movieId
-    WHERE c.id = :peopleId
+    WHERE c.peopleId = :peopleId
     ORDER BY title ASC, releaseDate DESC
 SQL
         );
