@@ -31,7 +31,7 @@ foreach ($films as $film) {
 
     $WebPage->appendContent("<a href='movie.php?movieId={$id}' class='film'>");
 
-    $WebPage->appendContent("<img src='image.php?imageId={$imageId}' alt='poster de film'>");
+    $WebPage->appendContent("<img src='image.php?imageId={$imageId}&type=m' alt='poster de film'>");
     $WebPage->appendContent("{$protectTitle}");
     $WebPage->appendContent("</a>");
     
