@@ -6,6 +6,7 @@ namespace Entity;
 
 use Database\MyPdo;
 use Entity\Exception\EntityNotFoundException;
+use PDO;
 
 class Cast
 {
@@ -21,9 +22,9 @@ class Cast
      *
      * @param int $movieId id du film
      * @param int $peopleId id de l'acteur
-     * @return string role de l'acteur
+     * @return array role de l'acteur
      */
-    public static function getRoleById(int $movieId, int $peopleId): string
+    public static function getRoleById(int $movieId, int $peopleId): array
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
@@ -34,8 +35,8 @@ class Cast
 SQL
         );
 
-        $stmt->execute(["movieId" =>$movieId, "peopleId" =>$movieId]);
-        if (($result = $stmt->fetch()) !== false) {
+        $stmt->execute(["movieId" =>$movieId, "peopleId" =>$peopleId]);
+        if (($result = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
             return $result;
         } else {
             throw new EntityNotFoundException("Le casting demandé est introuvable");

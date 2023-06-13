@@ -15,7 +15,7 @@ use PDO;
 class Movie
 {
     private int|null $id;
-    private int $posterId;
+    private int|null $posterId;
     private string $originalLanguage;
     private string $originalTitle;
     private string $overview;
@@ -32,9 +32,9 @@ class Movie
         return $this->id;
     }
      /** Accesseur à l'id du poster d'un film
-         * @return int
+         * @return int|null
          */
-        public function getPosterId(): int
+        public function getPosterId(): ?int
         {
             return $this->posterId;
         }
@@ -88,7 +88,7 @@ class Movie
             return $this->title;
         }
         /** Affiche un film à partir de son id.
-* @param int|null $id
+* @param int $id
 * @return Movie
  */
         public static function findById(int $id): Movie

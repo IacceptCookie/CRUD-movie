@@ -41,10 +41,10 @@ SQL
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-    SELECT DISTINCT m.id AS "id", posterId, originalLanguage, originalTitle, overview, releaseDate, runtime, tagline, title
+    SELECT DISTINCT m.id, posterId, originalLanguage, originalTitle, overview, releaseDate, runtime, tagline, title
     FROM movie m
         JOIN cast c ON m.id=c.movieId
-    WHERE id = :peopleId
+    WHERE c.id = :peopleId
     ORDER BY title ASC, releaseDate DESC
 SQL
         );
