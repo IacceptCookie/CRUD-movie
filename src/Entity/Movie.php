@@ -109,4 +109,20 @@ SQL
             }
 
         }
+        /** Méthode permettant de supprimer un enregistrement dans la base de données et de mettre son id à null
+        * @return $this
+         */
+        public function delete(): Movie
+        {
+            $stmt = MyPdo::getInstance()->prepare(
+                <<<SQL
+    DELETE 
+    FROM movie
+    WHERE id = :id
+SQL
+            );
+            $stmt->execute(["id" =>$this->id]);
+            $this->setId(null);
+            return $this;
+        }
 }
