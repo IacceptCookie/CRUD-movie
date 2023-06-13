@@ -99,73 +99,82 @@ class Movie
     /**
      * @param int|null $id
      */
-    public function setId(?int $id): void
+    public function setId(?int $id): Movie
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
      * @param int|null $posterId
      */
-    public function setPosterId(?int $posterId): void
+    public function setPosterId(?int $posterId): Movie
     {
         $this->posterId = $posterId;
+        return $this;
     }
 
     /**
      * @param string $originalLanguage
      */
-    public function setOriginalLanguage(string $originalLanguage): void
+    public function setOriginalLanguage(string $originalLanguage): Movie
     {
         $this->originalLanguage = $originalLanguage;
+        return $this;
     }
 
     /**
      * @param string $originalTitle
      */
-    public function setOriginalTitle(string $originalTitle): void
+    public function setOriginalTitle(string $originalTitle): Movie
     {
         $this->originalTitle = $originalTitle;
+        return $this;
     }
 
     /**
      * @param string $overview
      */
-    public function setOverview(string $overview): void
+    public function setOverview(string $overview): Movie
     {
         $this->overview = $overview;
+        return $this;
     }
 
     /**
      * @param string $releaseDate
      */
-    public function setReleaseDate(string $releaseDate): void
+    public function setReleaseDate(string $releaseDate): Movie
     {
         $this->releaseDate = $releaseDate;
+        return $this;
     }
 
     /**
      * @param int $runtime
      */
-    public function setRuntime(int $runtime): void
+    public function setRuntime(int $runtime): Movie
     {
         $this->runtime = $runtime;
+        return $this;
     }
 
     /**
      * @param string $tagline
      */
-    public function setTagline(string $tagline): void
+    public function setTagline(string $tagline): Movie
     {
         $this->tagline = $tagline;
+        return $this;
     }
 
     /**
      * @param string $title
      */
-    public function setTitle(string $title): void
+    public function setTitle(string $title): Movie
     {
         $this->title = $title;
+        return $this;
     }
 
 
@@ -192,6 +201,33 @@ SQL
 
     }
 
+    /** Méthode de la classe Movie qui permet de construire une instance de Movie
+     * @param int $id id de la nouvelle instance
+     * @param int|null $posterId posterId de la nouvelle instance
+     * @param string $originalLanguage originalLanguage de la nouvelle instance
+     * @param string $originalTitle originalTitle de la nouvelle instance
+     * @param string $overview overview de la nouvelle instance
+     * @param int $releaseDate releaseDate de la nouvelle instance
+     * @param int $runtime runtime de la nouvelle instance
+     * @param string $tagline tagline de la nouvelle instance
+     * @param string $title title de la nouvelle instance
+     * @return Movie nouvelle instance
+     */
+
+    public static function create(int $id, ?int $posterId = null, string $originalLanguage, string $originalTitle, string $overview, int $releaseDate, int $runtime, string $tagline, string $title): Movie
+    {
+        $new_Movie = new Movie();
+        $new_Movie->setId($id)->setPosterId($posterId)->setOriginalLanguage($originalLanguage)->setOriginalTitle($originalTitle)->setOverview($overview)->setReleaseDate($releaseDate)->setRuntime($runtime)->setTagline($tagline)->setTitle($title);
+        return $new_Movie;
+    }
+
+    /**
+     * Constructeur privé de la classe Movie
+     */
+    private function __construct()
+    {
+
+    }
 
 
 }
