@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-require_once '../vendor/autoload.php';
 use Database\MyPdo;
 use Entity\Collection\MovieCollection;
 use Html\WebPage;
