@@ -28,7 +28,7 @@ class PeopleCollection
     SELECT DISTINCT p.id, avatarId, birthday, deathday, name, biography, placeOfBirth
     FROM people p
         JOIN cast c ON p.id=c.peopleId
-    WHERE c.id = :movieId
+    WHERE c.movieId = :movieId
     ORDER BY name ASC
 SQL
         );
