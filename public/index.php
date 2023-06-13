@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-require_once '../vendor/autoload.php';
+
 use Database\MyPdo;
 use Entity\Collection\MovieCollection;
 use Html\WebPage;
@@ -11,33 +11,29 @@ $WebPage->setTitle("Films");
 $WebPage->appendCssUrl("css/style_index.css");
 
 
-
 $films = MovieCollection::findAll();
 
 $WebPage->appendContent(
     <<<HTML
 <div class="header"><h1>Films</h1></div>
-    <div class="film">
+    <div class="films">
 HTML
 );
 
 
 
 foreach ($films as $film) {
-    $WebPage->appendContent("\n");
-    $WebPage->appendContent("<div class='poster'>");
-
     $id = $film->getId();
-    $image = 'img/movie.png';
     $imageId = $film->getPosterId();
+
+    $WebPage->appendContent("\n");
+    $WebPage->appendContent("<a href='movie.php?movieId={$id}' class='film'>");
 
     $WebPage->appendContent("<img src='image.php?imageId={$imageId}' alt='poster de film'>");
     $WebPage->appendContent("{$film->getTitle()}");
-    $WebPage->appendContent("</div>");
-
-
-
+    $WebPage->appendContent("</a>");
 }
+
 $WebPage->appendContent("</div>");
 
 $modif = $WebPage->getLastModification();
