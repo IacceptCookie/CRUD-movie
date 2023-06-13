@@ -9,7 +9,7 @@ use Html\WebPage;
 $WebPage = new WebPage();
 $WebPage->setTitle("Films");
 $WebPage->appendCssUrl("css/style_index.css");
-MyPDO::setConfiguration('mysql:host=mysql;dbname=phil0105_movie;charset=utf8', 'phil0105', 'phpphil0105php');
+
 
 
 $films = MovieCollection::findAll();
@@ -29,8 +29,9 @@ foreach ($films as $film) {
 
     $id = $film->getId();
     $image = 'img/movie.png';
+    $imageId = $film->getPosterId();
 
-    $WebPage->appendContent("<img src='img/movie.png' alt='poster de film'>");
+    $WebPage->appendContent("<img src='image.php?imageId={$imageId}' alt='poster de film'>");
     $WebPage->appendContent("{$film->getTitle()}");
     $WebPage->appendContent("</div>");
 
@@ -46,5 +47,3 @@ $WebPage->appendContent("</div>");
 
 
 echo $WebPage->toHTML();
-
-
