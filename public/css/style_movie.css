@@ -1,0 +1,133 @@
+html{
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+h1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    border: solid orange 0.3vh;
+}
+
+.header {
+    display: flex;
+    align-content: center;
+    min-height: 10%;
+    max-height: 10%;
+    box-sizing: border-box;
+    border: solid blue 0.3vh;
+}
+
+.film {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 80%;
+    box-sizing: border-box;
+    border: solid blue 0.3vh;
+}
+
+.film-info {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    border: solid green 0.3vh;
+}
+
+.poster {
+    display: flex;
+    box-sizing: border-box;
+    border: solid orange 0.3vh;
+}
+
+.film-info-sub {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: solid orange 0.3vh;
+    flex: 1;
+}
+
+.title-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border: solid red 0.3vh;
+    flex: 1;
+}
+
+.originalTitle {
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    border: solid red 0.3vh;
+    flex: 1;
+}
+
+.slogan {
+    display: flex;
+    box-sizing: border-box;
+    border: solid red 0.3vh;
+    flex: 1;
+}
+
+.resume {
+    display: flex;
+    box-sizing: border-box;
+    border: solid red 0.3vh;
+    flex: 3;
+}
+
+.acteur-info {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    border: solid green 0.3vh;
+}
+
+.picture {
+    display: flex;
+    box-sizing: border-box;
+    border: solid orange 0.3vh;
+    justify-content: center;
+}
+
+.acteur-info-sub {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: solid orange 0.3vh;
+    flex: 1;
+}
+
+.role {
+    display: flex;
+    box-sizing: border-box;
+    border: solid red 0.3vh;
+    flex: 1;
+}
+
+.name {
+    display: flex;
+    box-sizing: border-box;
+    border: solid red 0.3vh;
+    flex: 1;
+}
+
+.footer {
+    display: flex;
+    align-content: center;
+    min-height: 10%;
+    max-height: 10%;
+    box-sizing: border-box;
+    border: solid blue 0.3vh;
+}
