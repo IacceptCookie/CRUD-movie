@@ -11,20 +11,20 @@ use PDO;
 class People
 {
     private int|null $id;
-    private int $avatarId;
-    private string $birthday;
-    private string $deathday;
+    private int|null $avatarId;
+    private string|null $birthday;
+    private string|null $deathday;
     private string $name;
-    private string $biography;
-    private string $placeOfBirth;
+    private string|null $biography;
+    private string|null $placeOfBirth;
 
 
     /**
      * Accesseur d'instance People permettant d'obtenir la valeur du champ id.
      *
-     * @return int valeur du champ id
+     * @return int|null valeur du champ id
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -33,9 +33,9 @@ class People
     /**
      * Accesseur d'instance People permettant d'obtenir la valeur du champ avatarId.
      *
-     * @return int valeur du champ avatarId
+     * @return int|null valeur du champ avatarId
      */
-    public function getAvatarId(): int
+    public function getAvatarId(): ?int
     {
         return $this->avatarId;
     }
@@ -44,9 +44,9 @@ class People
     /**
      * Accesseur d'instance People permettant d'obtenir la valeur du champ birthday.
      *
-     * @return string valeur du champ birthday
+     * @return string|null valeur du champ birthday
      */
-    public function getBirthday(): string
+    public function getBirthday(): ?string
     {
         return $this->birthday;
     }
@@ -55,9 +55,9 @@ class People
     /**
      * Accesseur d'instance People permettant d'obtenir la valeur du champ deathday.
      *
-     * @return string valeur du champ deathday
+     * @return string|null valeur du champ deathday
      */
-    public function getDeathday(): string
+    public function getDeathday(): ?string
     {
         return $this->deathday;
     }
@@ -77,9 +77,9 @@ class People
     /**
      * Accesseur d'instance People permettant d'obtenir la valeur du champ biography.
      *
-     * @return string valeur du champ biography
+     * @return string|null valeur du champ biography
      */
-    public function getBiography(): string
+    public function getBiography(): ?string
     {
         return $this->biography;
     }
@@ -88,9 +88,9 @@ class People
     /**
      * Accesseur d'instance People permettant d'obtenir la valeur du champ placeOfBirth.
      *
-     * @return string valeur du champ placeOfBirth
+     * @return string|null valeur du champ placeOfBirth
      */
-    public function getPlaceOfBirth(): string
+    public function getPlaceOfBirth(): ?string
     {
         return $this->placeOfBirth;
     }
