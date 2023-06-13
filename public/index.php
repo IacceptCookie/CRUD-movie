@@ -26,13 +26,16 @@ foreach ($films as $film) {
     $id = $film->getId();
     $imageId = $film->getPosterId();
 
-    $WebPage->appendContent("\n");
+    $titre = "{$film->getTitle()}";
+    $protectTitle =$WebPage->escapeString($titre);
+
     $WebPage->appendContent("<a href='movie.php?movieId={$id}' class='film'>");
 
     $WebPage->appendContent("<img src='image.php?imageId={$imageId}' alt='poster de film'>");
-    $WebPage->appendContent("{$film->getTitle()}");
+    $WebPage->appendContent("{$protectTitle}");
     $WebPage->appendContent("</a>");
-}
+    
+ }
 
 $WebPage->appendContent("</div>");
 

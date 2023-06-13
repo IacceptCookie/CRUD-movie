@@ -6,6 +6,8 @@ namespace Html;
 
 class WebPage
 {
+    use StringEscaper;
+
     /**
      * Classe WebPage. La classe est décrite par 3 attributs d'instances qui décrivent le code à insérer dans le <head>,
      * le code à insérer dans le <title> et le code à insérer dans le <body>.
@@ -187,22 +189,6 @@ HTML;
 HTML;
 
         return $html;
-    }
-
-
-    /**
-     * Méthode de la classe WebPage permettant de protéger les caractères sensibles au code HTML.
-     *
-     * @param string|null $string $string texte à protéger
-     * @return string|null le texte résultant
-     */
-    public function escapeString(?string $string): ?string
-    {
-        if ($string === null) {
-            return null;
-        } else {
-            return htmlspecialchars($string, flags: ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5);
-        }
     }
 
 
