@@ -15,6 +15,7 @@ try {
 } catch (ParameterException) {
     http_response_code(400);
 } catch (EntityNotFoundException) {
+    http_response_code(200);
     echo "img/movie.png";
     exit();
 } catch (Exception) {
