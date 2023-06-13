@@ -22,9 +22,9 @@ class Cast
      *
      * @param int $movieId id du film
      * @param int $peopleId id de l'acteur
-     * @return array role de l'acteur
+     * @return string role de l'acteur
      */
-    public static function getRoleById(int $movieId, int $peopleId): array
+    public static function getRoleById(int $movieId, int $peopleId): string
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
@@ -37,7 +37,7 @@ SQL
 
         $stmt->execute(["movieId" =>$movieId, "peopleId" =>$peopleId]);
         if (($result = $stmt->fetch(PDO::FETCH_ASSOC)) !== false) {
-            return $result;
+            return $result["role"];
         } else {
             throw new EntityNotFoundException("Le casting demandé est introuvable");
         }
