@@ -8,6 +8,7 @@ use Html\WebPage;
 
 $WebPage = new WebPage();
 $WebPage->setTitle("Films");
+$WebPage->appendCssUrl("css/style_index.css");
 MyPDO::setConfiguration('mysql:host=mysql;dbname=phil0105_movie;charset=utf8', 'phil0105', 'phpphil0105php');
 
 
@@ -24,7 +25,8 @@ HTML
 
 foreach ($films as $film) {
     $WebPage->appendContent("\n");
-    $WebPage->appendContent("<div class='poster{$film->getId()}'>");
+    $WebPage->appendContent("<div class='poster'>");
+
     $id = $film->getId();
     $image = 'img/movie.png';
 
@@ -36,6 +38,13 @@ foreach ($films as $film) {
 
 }
 $WebPage->appendContent("</div>");
+
+$modif = $WebPage->getLastModification();
+$WebPage->appendContent("<div class='footer'>");
+$WebPage->appendContent("<h3>{$modif}</h3>");
+$WebPage->appendContent("</div>");
+
+
 echo $WebPage->toHTML();
 
 
