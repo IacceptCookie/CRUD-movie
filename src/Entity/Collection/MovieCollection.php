@@ -12,12 +12,12 @@ use PDO;
 class MovieCollection
 {
     /** Classe MovieCollection. Elle n'a aucun attribut et possède deux méthodes de classes qui sont findAll et findByPeopleId
-    *
+     *
      */
 
 
     /** Méthode de classe MovieCOllection. Elle permet de récupérer un tableau qui contient tous les films.
-* @return array
+     * @return array
      */
     public static function findAll(): array
     {
@@ -49,11 +49,29 @@ SQL
 SQL
         );
 
-        $stmt->execute(["peopleId" =>$peopleId]);
+        $stmt->execute(["peopleId" => $peopleId]);
 
         return $stmt->fetchAll(PDO::FETCH_CLASS, Movie::class);
 
 
+    }
+
+    /** Méthode de classe MovieCollection qui permet de retourner un tableau qui contient tous les films d'un genre.
+     * @return array
+     */
+    public static function findByGenreId(int $genreId): array
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<SQL
+    SELECT DISTINCT m.id, posterId, originalLanguage, originalTitle, overview, releaseDate, runtime, tagline, title
+    FROM movie m 
+        JOIN movie_genre o ON m.id = o.movieId
+    WHERE genreId = :genreId
+    ORDER BY title ASC, releaseDate DESC
+SQL
+        );
+        $stmt->execute(["genreId" => $genreId]);
+        return $stmt->fetchAll(PDO::FETCH_CLASS, Movie::class);
     }
 
 }
