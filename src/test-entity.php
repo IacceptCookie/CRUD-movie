@@ -15,6 +15,7 @@ MyPdo::setConfiguration(
     ""
 );
 
+
 echo "People findById 678";
 var_dump(\Entity\People::findById(678));
 echo "Movie findById 582";
@@ -29,3 +30,10 @@ echo "Cast getRoleById 582 678";
 var_dump(\Entity\Cast::getRoleById(582, 678));
 echo "Image findById 33";
 var_dump(\Entity\Image::findById(33));
+
+
+echo "film findByGenreId 878";
+var_dump(\Entity\Collection\MovieCollection::findByGenreId(878));
+echo "GenreCollection findALl";
+var_dump(\Entity\Collection\GenreCollection::findAll());
+
