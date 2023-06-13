@@ -38,7 +38,7 @@ class MovieForm
      *
      * @return Movie|null la valeur du paramètre movie
      */
-    public function getArtist(): ?Movie
+    public function getMovie(): ?Movie
     {
         return $this->movie;
     }
