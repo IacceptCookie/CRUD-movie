@@ -219,6 +219,88 @@ SQL
         }
 
 
+    /**
+     * Méthode Movie permettant de mettre à jour un enregistrement dans la base de donnée.
+     *
+     * @return $this
+     */
+    protected function update(): Movie
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+    UPDATE movie
+    SET posterId = :posterId,
+        originalLanguage = :originalLanguage,
+        originalTitle = :originalTitle,
+        overview = :overview,
+        releaseDate = :releaseDate,
+        runTime = :runTime,
+        tagline = :tagline,
+        title = :title
+    WHERE id = :id
+SQL
+        );
+
+        $stmt->execute(["id" =>$this->id,
+            "posterId" =>$this->posterId,
+            "originalLanguage" =>$this->originalLanguage,
+            "originalTitle" =>$this->originalTitle,
+            "overview" =>$this->overview,
+            "releaseDate" =>$this->releaseDate,
+            "runTime" =>$this->runtime,
+            "tagline" =>$this->tagline,
+            "title" =>$this->title]);
+
+        return $this;
+    }
+
+
+    /**
+     * Méthode Movie permettant d'insérer un nouvel film dans la base de donnée.
+     *
+     * @return $this Le film inséré
+     */
+    protected function insert(): Movie
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+    INSERT INTO movie (posterId,originalLanguage,originalTitle,overview,releaseDate,runTime,tagline,title) 
+    VALUES (:posterId,:originalLanguage,:originalTitle,:overview,:releaseDate,:runTime,:tagline,:title)
+SQL
+        );
+
+        $stmt->execute(["posterId" =>$this->posterId,
+            "originalLanguage" =>$this->originalLanguage,
+            "originalTitle" =>$this->originalTitle,
+            "overview" =>$this->overview,
+            "releaseDate" =>$this->releaseDate,
+            "runTime" =>$this->runtime,
+            "tagline" =>$this->tagline,
+            "title" =>$this->title]);
+        $this->setId(intval(MyPDO::getInstance()->lastInsertId()));
+
+
+        return $this;
+    }
+
+
+    /**
+     * Méthode Movie permettant de mettre à jour une modification ou un ajout d'une entrée dans la base de donnée.
+     *
+     * @return $this
+     */
+    public function save(): Movie
+    {
+        if (is_null($this->id)) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+
+        return $this;
+    }
+
+
             /** Méthode de la classe Movie qui permet de construire une instance de Movie
      * @param int $id id de la nouvelle instance
      * @param int|null $posterId posterId de la nouvelle instance
