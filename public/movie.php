@@ -52,7 +52,7 @@ $overview = $WebPage->escapeString($movie->getOverview());
 $html = <<<HTML
         <div class='film-info'>
             <div class="poster">
-                <img src="image.php?imageId={$movie->getPosterId()}" alt="poster du film">
+                <img src="image.php?imageId={$movie->getPosterId()}&type=m" alt="poster du film">
             </div>
             <div class="film-info-sub">
                 <section class="title-date">
@@ -80,7 +80,7 @@ foreach ($casting as $people) {
     $html = <<<HTML
         <div class="acteur-info">
             <div class="picture">
-                <img src="image.php?imageId={$people->getAvatarId()}" alt="photo de l'acteur">
+                <img src="image.php?imageId={$people->getAvatarId()}&type=p" alt="photo de l'acteur">
             </div>
             <div class="acteur-info-sub">
                 <section class="role">{$role}</section>
