@@ -14,10 +14,12 @@ try {
     $image = Image::findById($imageId);
 } catch (ParameterException) {
     http_response_code(400);
+    header('Content-Type: image/png');
+    echo file_get_contents("img/movie.png");
 } catch (EntityNotFoundException) {
-    http_response_code(200);
-    echo "img/movie.png";
-    exit();
+    http_response_code(404);
+    header('Content-Type: image/png');
+    echo file_get_contents("img/movie.png");
 } catch (Exception) {
     http_response_code(500);
 }
