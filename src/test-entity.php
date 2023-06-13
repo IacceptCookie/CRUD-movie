@@ -27,3 +27,5 @@ echo "MovieCollection findAll";
 var_dump(\Entity\Collection\MovieCollection::findAll());
 echo "Cast getRoleById 582 678";
 var_dump(\Entity\Cast::getRoleById(582, 678));
+echo "Image findById 33";
+var_dump(\Entity\Image::findById(33));
