@@ -42,7 +42,7 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     overflow: auto;
-    max-height: 76%;
+    max-height: 75%;
     margin-bottom: 4%;
     margin-top: 4%;
     box-sizing: border-box;
@@ -155,7 +155,6 @@ h1 {
 
     .films {
         border-right: 10px;
-        max-height: 75%;
     }
 
     .film {
