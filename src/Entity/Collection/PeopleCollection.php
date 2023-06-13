@@ -25,10 +25,10 @@ class PeopleCollection
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-    SELECT DISTINCT p.id AS "id", avatarId, birthday, deathday, name, biography, placeOfBirth
+    SELECT DISTINCT p.id, avatarId, birthday, deathday, name, biography, placeOfBirth
     FROM people p
         JOIN cast c ON p.id=c.peopleId
-    WHERE id = :movieId
+    WHERE c.id = :movieId
     ORDER BY name ASC
 SQL
         );
