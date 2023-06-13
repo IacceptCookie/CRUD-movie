@@ -28,11 +28,13 @@ foreach ($films as $film) {
     $WebPage->appendContent("<div class='poster'>");
 
     $id = $film->getId();
-    $image = 'img/movie.png';
     $imageId = $film->getPosterId();
 
+    $titre = "{$film->getTitle()}";
+    $protectTitle =$WebPage->escapeString($titre);
+
     $WebPage->appendContent("<img src='image.php?imageId={$imageId}' alt='poster de film'>");
-    $WebPage->appendContent("{$film->getTitle()}");
+    $WebPage->appendContent("{$protectTitle}");
     $WebPage->appendContent("</div>");
 
 
