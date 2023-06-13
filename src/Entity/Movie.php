@@ -198,10 +198,28 @@ SQL
         } else {
             throw new EntityNotFoundException("Le film demandé est introuvable");
         }
-
     }
 
-    /** Méthode de la classe Movie qui permet de construire une instance de Movie
+
+        /** Méthode permettant de supprimer un enregistrement dans la base de données et de mettre son id à null
+        * @return $this
+         */
+        public function delete(): Movie
+        {
+            $stmt = MyPdo::getInstance()->prepare(
+                <<<SQL
+    DELETE 
+    FROM movie
+    WHERE id = :id
+SQL
+            );
+            $stmt->execute(["id" =>$this->id]);
+            $this->setId(null);
+            return $this;
+        }
+
+
+            /** Méthode de la classe Movie qui permet de construire une instance de Movie
      * @param int $id id de la nouvelle instance
      * @param int|null $posterId posterId de la nouvelle instance
      * @param string $originalLanguage originalLanguage de la nouvelle instance
@@ -221,13 +239,11 @@ SQL
         return $new_Movie;
     }
 
+
     /**
      * Constructeur privé de la classe Movie
      */
     private function __construct()
     {
-
     }
-
-
 }
