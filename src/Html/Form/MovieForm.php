@@ -58,7 +58,7 @@ class MovieForm
         $originalTitle = $this->escapeString($this?->movie?->getOriginalTitle());
         $overview = $this->escapeString($this?->movie?->getOverview());
         $releaseDate = $this->escapeString($this?->movie?->getReleaseDate());
-        $runtime = $this->escapeString($this?->movie?->getRuntime());
+        $runtime = $this->escapeString(strval($this?->movie?->getRuntime()));
         $tagline = $this->escapeString($this?->movie?->getTagline());
         $title = $this->escapeString($this?->movie?->getTitle());
 
@@ -67,31 +67,31 @@ class MovieForm
         <input type="hidden" name="id" value="{$id}">
         <input type="hidden" name="posterId" value="{$posterId}">
         <label>
-            id de poster
+            Langue original
             <input type="text" name="originalLanguage" value="{$originalLanguage}" required>
         </label>
         <label>
-            id de poster
+            Titre original
             <input type="text" name="originalTitle" value="{$originalTitle}" required>
         </label>
         <label>
-            id de poster
+            Description
             <input type="text" name="overview" value="{$overview}" required>
         </label>
         <label>
-            id de poster
+            Date de sortie
             <input type="date" name="releaseDate" value="{$releaseDate}" required>
         </label>
         <label>
-            id de poster
+            Durée
             <input type="number" name="runtime" value="{$runtime}" required>
         </label>
         <label>
-            id de poster
+            slogan
             <input type="text" name="tagline" value="{$tagline}" required>
         </label>
         <label>
-            id de poster
+            Titre
             <input type="text" name="title" value="{$title}" required>
         </label>
         <button type="submit">
