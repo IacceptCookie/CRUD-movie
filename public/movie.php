@@ -28,23 +28,23 @@ try {
     exit();
 }
 
-$WebPage = new WebPage();
-$title = $WebPage->escapeString($movie->getTitle());
+$webPage = new WebPage();
+$title = $webPage->escapeString($movie->getTitle());
 
-$WebPage->setTitle($title);
-$WebPage->appendCssUrl("css/style_movie.css");
+$webPage->setTitle($title);
+$webPage->appendCssUrl("css/style_movie.css");
 
-$WebPage->appendContent(
+$webPage->appendContent(
     <<<HTML
 <div class="header">
         <a href="index.php" class="home">
-            <img src="img/page-daccueil.png" alt="home">
+            <img src="img/homePage.png" alt="home">
         </a>
         <h1>Films - {$title}</h1>
         <div class="empty"></div>
     </div>
-    <div class="film">
-        <div class="append">
+    <div class="movie">
+        <div class="interact">
             <a href="admin/movie-form.php?movieId={$movieId}">Modifier</a>
             <a href="admin/movie-delete.php?movieId={$movieId}">Supprimer</a>
         </div>
@@ -52,45 +52,45 @@ $WebPage->appendContent(
 HTML
 );
 
-$release = $WebPage->escapeString($movie->getReleaseDate());
-$origin = $WebPage->escapeString($movie->getOriginalTitle());
-$tagLine = $WebPage->escapeString($movie->getTagline());
-$overview = $WebPage->escapeString($movie->getOverview());
+$release = $webPage->escapeString($movie->getReleaseDate());
+$origin = $webPage->escapeString($movie->getOriginalTitle());
+$tagline = $webPage->escapeString($movie->getTagline());
+$overview = $webPage->escapeString($movie->getOverview());
 
 $html = <<<HTML
-        <div class='film-info'>
+        <div class='movie-info'>
             <div class="poster">
                 <img src="image.php?imageId={$movie->getPosterId()}&type=m" alt="poster du film">
             </div>
-            <div class="film-info-sub">
+            <div class="movie-info-sub">
                 <section class="title-date">
                     <section class="title">{$title}</section>
                     <section class="date">{$release}</section>
                 </section>
                 <section class="originalTitle">{$origin}</section>
-                <section class="slogan">{$tagLine}</section>
+                <section class="slogan">{$tagline}</section>
                 <section class="resume">{$overview}</section>
             </div>
         </div>
 
 HTML;
 
-$WebPage->appendContent($html);
+$webPage->appendContent($html);
 
 $casting = PeopleCollection::findByMovieId($movieId);
 
 foreach ($casting as $people) {
     $peopleId = $people->getId();
 
-    $role = $WebPage->escapeString(Cast::getRoleById($movieId, $peopleId));
-    $name = $WebPage->escapeString($people->getName());
+    $role = $webPage->escapeString(Cast::getRoleById($movieId, $peopleId));
+    $name = $webPage->escapeString($people->getName());
 
     $html = <<<HTML
-        <a href='people.php?peopleId={$peopleId}' class="acteur-info">
+        <a href='people.php?peopleId={$peopleId}' class="people-info">
             <div class="picture">
                 <img src="image.php?imageId={$people->getAvatarId()}&type=p" alt="photo de l'acteur">
             </div>
-            <div class="acteur-info-sub">
+            <div class="people-info-sub">
                 <section class="role">{$role}</section>
                 <section class="name">{$name}</section>
             </div>
@@ -98,7 +98,7 @@ foreach ($casting as $people) {
 
 HTML;
 
-    $WebPage->appendContent($html);
+    $webPage->appendContent($html);
 }
 
 $html = <<<HTML
@@ -106,7 +106,7 @@ $html = <<<HTML
 
 HTML;
 
-$WebPage->appendContent($html);
+$webPage->appendContent($html);
 
 $modification = WebPage::getLastModification();
 
@@ -117,8 +117,8 @@ $html = <<<HTML
 
 HTML;
 
-$WebPage->appendContent($html);
+$webPage->appendContent($html);
 
-$html = $WebPage->toHTML();
+$html = $webPage->toHTML();
 
 echo $html;

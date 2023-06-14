@@ -8,12 +8,12 @@ use Database\MyPdo;
 use Entity\Exception\EntityNotFoundException;
 use PDO;
 
-/**
- * La classe movie est composée de 9 attributs (id, posterId, originalLanguage, originalTitle, overview, releaseDate, runetime, tagline et title)
- * Elle possède une méthode findById qui permet de retrouver un film à parti de son id.
- */
 class Movie
 {
+    /**
+     * La classe movie est composée de 9 attributs (id, posterId, originalLanguage, originalTitle, overview, releaseDate, runetime, tagline et title)
+     * Elle possède une méthode findById qui permet de retrouver un film à parti de son id.
+     */
     private int|null $id;
     private int|null $posterId;
     private string $originalLanguage;
@@ -97,7 +97,10 @@ class Movie
     }
 
     /**
-     * @param int|null $id
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut id.
+     *
+     * @param int|null $id nouvelle valeur de id
+     * @return Movie l'instance modifiée
      */
     public function setId(?int $id): Movie
     {
@@ -106,7 +109,10 @@ class Movie
     }
 
     /**
-     * @param int|null $posterId
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut posterId.
+     *
+     * @param int|null $posterId nouvelle valeur de posterId
+     * @return Movie l'instance modifiée
      */
     public function setPosterId(?int $posterId): Movie
     {
@@ -115,7 +121,10 @@ class Movie
     }
 
     /**
-     * @param string $originalLanguage
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut originalLanguage.
+     *
+     * @param string $originalLanguage nouvelle valeur d'originalLanguage
+     * @return Movie l'instance modifiée
      */
     public function setOriginalLanguage(string $originalLanguage): Movie
     {
@@ -124,7 +133,10 @@ class Movie
     }
 
     /**
-     * @param string $originalTitle
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut originalTitle.
+     *
+     * @param string $originalTitle nouvelle valeur d'originalTitle
+     * @return Movie l'instance modifiée
      */
     public function setOriginalTitle(string $originalTitle): Movie
     {
@@ -133,7 +145,10 @@ class Movie
     }
 
     /**
-     * @param string $overview
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut overview.
+     *
+     * @param string $overview nouvelle valeur d'overview
+     * @return Movie l'instance modifiée
      */
     public function setOverview(string $overview): Movie
     {
@@ -142,7 +157,10 @@ class Movie
     }
 
     /**
-     * @param string $releaseDate
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut releaseDate.
+     *
+     * @param string $releaseDate nouvelle valeur de releaseDate
+     * @return Movie l'instance modifiée
      */
     public function setReleaseDate(string $releaseDate): Movie
     {
@@ -151,7 +169,10 @@ class Movie
     }
 
     /**
-     * @param int $runtime
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut runtime.
+     *
+     * @param int $runtime nouvelle valeur de runtime
+     * @return Movie l'instance modifiée
      */
     public function setRuntime(int $runtime): Movie
     {
@@ -160,7 +181,10 @@ class Movie
     }
 
     /**
-     * @param string $tagline
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut tagline.
+     *
+     * @param string $tagline nouvelle valeur de l'attribut tagline
+     * @return Movie l'instance modifiée
      */
     public function setTagline(string $tagline): Movie
     {
@@ -169,7 +193,10 @@ class Movie
     }
 
     /**
-     * @param string $title
+     * Modificateur d'instance Movie permettant de modifier la valeur de l'attribut title.
+     *
+     * @param string $title nouvelle valeur de l'attribut title
+     * @return Movie l'instance modifiée
      */
     public function setTitle(string $title): Movie
     {
@@ -301,13 +328,13 @@ SQL
     }
 
 
-            /** Méthode de la classe Movie qui permet de construire une instance de Movie
-     * @param int $id id de la nouvelle instance
+    /** Méthode de la classe Movie qui permet de construire une instance de Movie
+     * @param int|null $id id de la nouvelle instance
      * @param int|null $posterId posterId de la nouvelle instance
      * @param string $originalLanguage originalLanguage de la nouvelle instance
      * @param string $originalTitle originalTitle de la nouvelle instance
      * @param string $overview overview de la nouvelle instance
-     * @param int $releaseDate releaseDate de la nouvelle instance
+     * @param string $releaseDate releaseDate de la nouvelle instance
      * @param int $runtime runtime de la nouvelle instance
      * @param string $tagline tagline de la nouvelle instance
      * @param string $title title de la nouvelle instance

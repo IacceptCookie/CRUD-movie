@@ -62,7 +62,7 @@ h1 {
     margin: 1%;
 }
 
-.film {
+.movie {
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -75,7 +75,7 @@ h1 {
     flex: 1;
 }
 
-.append {
+.interact {
     display: flex;
     box-sizing: border-box;
     flex-basis: 90%;
@@ -86,7 +86,7 @@ h1 {
     justify-content: space-around;
 }
 
-.append>a {
+.interact>a {
     text-decoration: none;
     color: black;
     background-color: #73BD88;
@@ -98,12 +98,12 @@ h1 {
     align-content: center;
 }
 
-.append>a:hover {
+.interact>a:hover {
     background-color: #63A375;
     transition-duration: 0.1s;
 }
 
-.film-info {
+.movie-info {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -122,7 +122,7 @@ h1 {
     justify-content: center;
 }
 
-.film-info-sub {
+.movie-info-sub {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -200,7 +200,7 @@ h1 {
     padding: 1%;
 }
 
-.acteur-info {
+.people-info {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
@@ -211,7 +211,7 @@ h1 {
     border-radius: 3px;
 }
 
-.acteur-info:hover {
+.people-info:hover {
     background-color: #A58867;
     transition-duration: 0.1s;
 }
@@ -222,7 +222,7 @@ h1 {
     padding: 1%;
 }
 
-.acteur-info-sub {
+.people-info-sub {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -266,21 +266,21 @@ h1 {
 }
 
 @media only screen and (min-width: 400px) {
-    .header, .append {
+    .header, .interact {
         border-radius: 5px;
     }
 
-    .film {
+    .movie {
         border-right: 5px;
         margin-bottom: 3%;
         margin-top: 3%;
     }
 
-    .film-info, .acteur-info {
+    .movie-info, .people-info {
         border-radius: 5px;
     }
 
-    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .append>a {
+    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .interact>a {
         border-radius: 5px;
     }
 
@@ -290,12 +290,12 @@ h1 {
 }
 
 @media only screen and (min-width: 600px) {
-    .film {
+    .movie {
         margin-bottom: 2%;
         margin-top: 2%;
     }
 
-    .film-info {
+    .movie-info {
         flex-direction: row;
     }
 
@@ -309,11 +309,11 @@ h1 {
         border-radius: 10px;
     }
 
-    .film, .append {
+    .movie, .interact {
         border-radius: 10px;
     }
 
-    .film-info, .acteur-info {
+    .movie-info, .people-info {
         border-radius: 10px;
     }
 
@@ -321,7 +321,7 @@ h1 {
         border-radius: 10px;
     }
 
-    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .append>a {
+    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .interact>a {
         border-radius: 10px;
         font-size: 18px;
     }
@@ -332,13 +332,13 @@ h1 {
 }
 
 @media only screen and (min-width: 1000px) {
-    .film {
+    .movie {
         margin-bottom: 1%;
         margin-top: 1%;
         max-height: 76%;
     }
 
-    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .append>a {
+    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .interact>a {
         font-size: 24px;
     }
 

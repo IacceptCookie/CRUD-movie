@@ -32,7 +32,7 @@ try {
         <<<HTML
 <div class="header">
         <a href="../index.php" class="home">
-            <img src="../img/page-daccueil.png" alt="empty">
+            <img src="../img/homePage.png" alt="home">
         </a>
         <h1>{$title}</h1>
         <div class="empty"></div>

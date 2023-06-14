@@ -192,6 +192,11 @@ HTML;
     }
 
 
+    /**
+     * Méthode de classe WebPage permettant d'obtenir la date de dernière modification d'un script.
+     *
+     * @return string date de dernière modification d'un script (format d/m/Y-H:i:s)
+     */
     public static function getLastModification(): string
     {
         return date("d/m/Y-H:i:s", getlastmod());

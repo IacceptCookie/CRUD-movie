@@ -67,7 +67,7 @@ class MovieForm
         <input type="hidden" name="id" value="{$id}">
         <input type="hidden" name="posterId" value="{$posterId}">
         <label>
-            Langue original
+            Langue originale
             <input type="text" name="originalLanguage" value="{$originalLanguage}" required>
         </label>
         <label>
@@ -87,7 +87,7 @@ class MovieForm
             <input type="number" name="runtime" value="{$runtime}" required>
         </label>
         <label>
-            slogan
+            Slogan
             <input type="text" name="tagline" value="{$tagline}" required>
         </label>
         <label>
@@ -113,36 +113,42 @@ HTML;
      */
     public function setEntityFromQueryString(): void
     {
+        //on affecte une valeur au champ id
         if (!(isset($_POST['id']) and ctype_digit($_POST['id']))) {
             $id = null;
         } else {
             $id = intval($_POST['id']);
         }
 
+        //on vérifie que le champ correspond à un entier
         if (!(isset($_POST['posterId']) and ctype_digit($_POST['posterId']))) {
             $posterId = null;
         } else {
             $posterId = intval($this->stripTagsAndTrim($_POST['posterId']));
         }
 
+        //on vérifie que le champ est contient uniquement des caractères alphabétique
         if (!(isset($_POST['originalLanguage']) and ctype_alpha($_POST['originalLanguage']))) {
             throw new ParameterException();
         } else {
             $orginalLanguage = $this->stripTagsAndTrim($_POST['originalLanguage']);
         }
 
-        if (!(isset($_POST['originalTitle']) and $_POST['originalTitle'] ==! '')) {
+        //on vérifie que le champ n'est pas vide
+        if (!(isset($_POST['originalTitle']) and $_POST['originalTitle'] !== '')) {
             throw new ParameterException();
         } else {
             $orginalTitle = $this->stripTagsAndTrim($_POST['originalTitle']);
         }
 
-        if (!(isset($_POST['overview']) and $_POST['overview'] ==! '')) {
+        //on vérifie que le champ n'est pas vide
+        if (!(isset($_POST['overview']) and $_POST['overview'] !== '')) {
             throw new ParameterException();
         } else {
             $overview = $this->stripTagsAndTrim($_POST['overview']);
         }
 
+        //on vérifie que le champ est une date conforme
         if (!(isset($_POST['releaseDate']))) {
             throw new ParameterException();
         } else {
@@ -154,19 +160,22 @@ HTML;
             }
         }
 
+        //on vérifie que le champ correspond à un entier valide
         if (!(isset($_POST['runtime']) and ctype_digit($_POST['runtime']))) {
             throw new ParameterException();
         } else {
             $runtime = intval($this->stripTagsAndTrim($_POST['runtime']));
         }
 
-        if (!(isset($_POST['tagline']) and $_POST['tagline'] ==! '')) {
+        //on vérifie que le champ n'est pas vide
+        if (!(isset($_POST['tagline']) and $_POST['tagline'] !== '')) {
             throw new ParameterException();
         } else {
             $tagline = $this->stripTagsAndTrim($_POST['tagline']);
         }
 
-        if (!(isset($_POST['title']) and $_POST['title'] ==! '')) {
+        //on vérifie que le champ n'est pas vide
+        if (!(isset($_POST['title']) and $_POST['title'] !== '')) {
             throw new ParameterException();
         } else {
             $title = $this->stripTagsAndTrim($_POST['title']);

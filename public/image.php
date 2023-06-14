@@ -36,7 +36,7 @@ try {// on teste si imageId est valide
         }
     }
     exit();
-} catch (Exception) {// si une exception non géré est présente
+} catch (Exception) {// si une exception non gérée est présente
     http_response_code(500);
 }
 

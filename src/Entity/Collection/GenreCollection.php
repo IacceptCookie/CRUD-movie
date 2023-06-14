@@ -10,13 +10,14 @@ use PDO;
 
 class GenreCollection
 {
-    /** La classe GenreCollection ne contient aucun attributs. Elle contient une méthode, findAll qui renvoie tous les genres.
+    /** La classe GenreCollection ne contient aucun attributs.
+     * Elle contient une méthode, findAll qui renvoie tous les genres.
      *
      */
 
 
     /** Méthode de la classe GenreCollection qui renvoie un tableau contenant tous les genres.
-     * @return array
+     * @return Genre[]
      */
     public static function findAll(): array
     {

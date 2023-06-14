@@ -10,6 +10,17 @@ use PDO;
 
 class People
 {
+    /**
+     * Classe People. Représente l'entité people et est décrite par 7 attributs d'instance.
+     *
+     * @var int|null $id id de l'acteur
+     * @var int|null $avatarId id de la photo de l'acteur
+     * @var string|null $birthday date de naissance de l'acteur
+     * @var string|null $deathday date de mort de l'acteur
+     * @var string $name prénom et nom de l'acteur
+     * @var string|null $biography biographie de l'acteur
+     * @var string|null $placeOfBirth lieu de naissance de l'acteur
+     */
     private int|null $id;
     private int|null $avatarId;
     private string|null $birthday;
