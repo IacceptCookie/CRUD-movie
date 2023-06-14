@@ -11,8 +11,18 @@ use Html\WebPage;
 $webPage = new WebPage();
 $webPage->setTitle("Films");
 $webPage->appendCssUrl("css/style_index.css");
+$title = "Films";
 
-
+if (isset($_GET['genre']) && $_GET['genre'] !== '') {
+    $genreId = (int)$_GET['genre'];
+    $movies = MovieCollection::findByGenreId($genreId);
+    $genre = Genre::findById($genreId);
+    $genre = $webPage->escapeString($genre->getName());
+    $title = "Films - ".$genre;
+    $webPage->setTitle("{$title}");
+} else {
+    $movies = MovieCollection::findAll();
+}
 
 $webPage->appendContent(
     <<<HTML
@@ -20,19 +30,11 @@ $webPage->appendContent(
             <a href="index.php" class="home">
                 <img src="img/homePage.png" alt="home">
             </a>
-            <h1>Films</h1>
+            <h1>{$title}</h1>
 
 HTML
 );
 
-if (isset($_GET['genre']) && $_GET['genre'] !== '') {
-    $genreId = (int)$_GET['genre'];
-    $movies = MovieCollection::findByGenreId($genreId);
-    //$genre = Genre::findById($genreId);
-    //$webPage->setTitle("Films - {$genre->getName()}");
-} else {
-    $movies = MovieCollection::findAll();
-}
 
 $webPage->appendContent(
     <<<HTML
