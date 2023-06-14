@@ -137,6 +137,7 @@ h1 {
     .films {
         margin-bottom: 2%;
         margin-top: 2%;
+        max-height: 70%;
     }
 
     .film {
@@ -155,6 +156,7 @@ h1 {
 
     .films {
         border-right: 10px;
+        max-height: 72%;
     }
 
     .film {
