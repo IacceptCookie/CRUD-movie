@@ -135,14 +135,14 @@ HTML;
         }
 
         //on vérifie que le champ n'est pas vide
-        if (!(isset($_POST['originalTitle']) and $_POST['originalTitle'] == '')) {
+        if (!(isset($_POST['originalTitle']) and $_POST['originalTitle'] !== '')) {
             throw new ParameterException();
         } else {
             $orginalTitle = $this->stripTagsAndTrim($_POST['originalTitle']);
         }
 
         //on vérifie que le champ n'est pas vide
-        if (!(isset($_POST['overview']) and $_POST['overview'] == '')) {
+        if (!(isset($_POST['overview']) and $_POST['overview'] !== '')) {
             throw new ParameterException();
         } else {
             $overview = $this->stripTagsAndTrim($_POST['overview']);
@@ -168,14 +168,14 @@ HTML;
         }
 
         //on vérifie que le champ n'est pas vide
-        if (!(isset($_POST['tagline']) and $_POST['tagline'] == '')) {
+        if (!(isset($_POST['tagline']) and $_POST['tagline'] !== '')) {
             throw new ParameterException();
         } else {
             $tagline = $this->stripTagsAndTrim($_POST['tagline']);
         }
 
         //on vérifie que le champ n'est pas vide
-        if (!(isset($_POST['title']) and $_POST['title'] == '')) {
+        if (!(isset($_POST['title']) and $_POST['title'] !== '')) {
             throw new ParameterException();
         } else {
             $title = $this->stripTagsAndTrim($_POST['title']);
