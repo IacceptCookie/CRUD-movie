@@ -43,6 +43,14 @@ h1 {
     height: auto;
 }
 
+.header .filter{
+    position: fixed;
+    top: 5%;
+    left: 90%;
+    align-content: center;
+    width: 100%;
+}
+
 .films {
     display: flex;
     flex-direction: row;
