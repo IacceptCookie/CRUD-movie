@@ -53,7 +53,7 @@ class MovieForm
     public function getHtmlForm(string $action): string
     {
         $id = $this?->movie?->getId();
-        $posterId = $this->escapeString($this?->movie?->getPosterId());
+        $posterId = $this->escapeString(strval($this?->movie?->getPosterId()));
         $originalLanguage = $this->escapeString($this?->movie?->getOriginalLanguage());
         $originalTitle = $this->escapeString($this?->movie?->getOriginalTitle());
         $overview = $this->escapeString($this?->movie?->getOverview());
