@@ -9,8 +9,8 @@ use Html\Form\MovieForm;
 try {
     $form = new MovieForm();
     $form->setEntityFromQueryString();
-    $form->getMovie()->save();
-    header('Location: /index.php');
+    $movie = $form->getMovie()->save();
+    header("Location: /movie.php?movieId={$movie->getId()}");
 } catch (ParameterException) {
     http_response_code(400);
 } catch (Exception) {
