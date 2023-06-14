@@ -65,10 +65,7 @@ class MovieForm
         $html = <<<HTML
     <form name="" method="post" action="{$action}">
         <input type="hidden" name="id" value="{$id}">
-        <label>
-            id de poster
-            <input type="number" name="posterId" value="{$posterId}">
-        </label>
+        <input type="hidden" name="posterId" value="{$posterId}">
         <label>
             id de poster
             <input type="text" name="originalLanguage" value="{$originalLanguage}" required>
