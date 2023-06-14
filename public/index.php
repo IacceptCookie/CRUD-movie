@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 use Database\MyPdo;
+use Entity\Collection\GenreCollection;
 use Entity\Collection\MovieCollection;
+use Entity\Genre;
 use Html\WebPage;
 
 $WebPage = new WebPage();
@@ -11,7 +13,6 @@ $WebPage->setTitle("Films");
 $WebPage->appendCssUrl("css/style_index.css");
 
 
-$films = MovieCollection::findAll();
 
 $WebPage->appendContent(
     <<<HTML
@@ -23,9 +24,45 @@ $WebPage->appendContent(
             <div class="append">
                 <a href="admin/movie-form.php">Ajouter</a>
             </div>
+
 HTML
 );
 
+if (isset($_GET['genre']) && $_GET['genre'] !== '') {
+    $genreId = (int)$_GET['genre'];
+    $films = MovieCollection::findByGenreId($genreId);
+
+    //$title = " - {$genre->getName()}";
+}
+else {
+    $films = MovieCollection::findAll();
+    $title = '';
+}
+
+$WebPage->appendContent(
+    <<<HTML
+    <div class="filter">
+        <form action="index.php" method="get">
+            <select name="genre">
+                <option value="">Tous les genres</option>
+HTML
+);
+
+$genres = GenreCollection::findAll();
+
+foreach ($genres as $genre) {
+    $WebPage->appendContent("<option value='{$genre->getId()}'>{$WebPage->escapeString($genre->getName())}</option>");
+}
+
+$WebPage->appendContent(<<<HTML
+            </select>
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+    </div>
+    <div class="films">
+
+HTML);
 
 
 foreach ($films as $film) {
