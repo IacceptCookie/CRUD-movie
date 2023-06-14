@@ -41,7 +41,7 @@ class Image
 
 
     /**
-     * Méthode de classe Cover permettant de retourner un objet Cover contenant les informations d'une pochette
+     * Méthode de classe Image permettant de retourner un objet Cover contenant les informations d'une pochette
      * à partir de son id.
      *
      * @param int $id Id de la pochette à chercher
