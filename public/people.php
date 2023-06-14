@@ -50,21 +50,31 @@ $deathday = $WebPage->escapeString($people->getDeathday());
 $biography = $WebPage->escapeString($people->getBiography());
 
 $html = <<<HTML
-
- <div class='people-info'>
+        <div class='people-info'>
             <div class="avatar">
                 <img src="image.php?imageId={$people->getAvatarId()}&type=p" alt="Avatar de l'acteur">
             </div>
             <div class="people-info-sub">
-                <section class="name">{$name}</section>
-                <section class="place">{$place}</section>
-                <section class="birthday-deathday">
-                    <section class="birthday">{$birthday}</section>
-                    <section class="deathday"></section>
+                <section class="name">
+                    {$name}
                 </section>
-                <section class="biography">{$biography}</section>
+                <section class="place">
+                    {$place}
+                </section>
+                <section class="birthday-deathday">
+                    <section class="birthday">
+                        {$birthday}
+                    </section>
+                    <section class="deathday">
+                        {$deathday}
+                    </section>
+                </section>
+                <section class="biography">
+                    {$biography}
+                </section>
             </div>
         </div>
+
 HTML;
 
 $WebPage->appendContent($html);
@@ -79,22 +89,18 @@ foreach ($apparitions as $movie) {
 
 
     $html = <<<HTML
-
-        <a href='movie.php?movieId={$movieId}'>
-            <div class="film-info">
-                <div class="picture">
-                    <img src="image.php?imageId={$movie->getPosterId()}&type=m" alt="poster du film">
-                </div>
-                <div class="film-info-sub">
-                    <section class="titre + date">
-                        <section class="titre">{$titre}</section>
-                        <section class="date">{$date}</section>
-                    </section>
-                    <section class="role">{$role}</section>
-                </div>
+        <a href='movie.php?movieId={$movieId}' class="film-info">
+            <div class="picture">
+                <img src="image.php?imageId={$movie->getPosterId()}&type=m" alt="poster du film">
+            </div>
+            <div class="film-info-sub">
+                <section class="title-date">
+                    <section class="title">{$titre}</section>
+                    <section class="date">{$date}</section>
+                </section>
+                <section class="role">{$role}</section>
             </div>
         </a>
-
 
 HTML;
     $WebPage->appendContent($html);
@@ -104,10 +110,10 @@ HTML;
 $modification = WebPage::getLastModification();
 
 $html = <<<HTML
+    </div>
     <div class="footer">
         <h1>Dernière Modification : {$modification}</h1>
     </div>
-
 HTML;
 $WebPage->appendContent($html);
 
