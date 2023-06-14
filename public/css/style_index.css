@@ -115,6 +115,7 @@ h1 {
 
     .films {
         border-right: 5px;
+        padding: 2%;
     }
 
     .film {
@@ -148,6 +149,7 @@ h1 {
 
     .films {
         border-right: 10px;
+        padding: 1%;
     }
 
     .film {
