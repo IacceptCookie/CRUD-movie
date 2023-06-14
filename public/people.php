@@ -28,30 +28,30 @@ try {
     exit();
 }
 
-$WebPage = new WebPage();
-$name = $WebPage->escapeString($people->getName());
+$webPage = new WebPage();
+$name = $webPage->escapeString($people->getName());
 
-$WebPage->setTitle($name);
-$WebPage->appendCssUrl("css/style_people.css");
+$webPage->setTitle($name);
+$webPage->appendCssUrl("css/style_people.css");
 
-$WebPage->appendContent(
+$webPage->appendContent(
     <<<HTML
     <div class="header">
         <a href="index.php" class="home">
-            <img src="img/page-daccueil.png" alt="home">
+            <img src="img/homePage.png" alt="home">
         </a>
         <h1>Films - {$name}</h1>
         <div class="empty"></div>
     </div>
-    <div class="personne">
+    <div class="people">
 
 HTML
 );
 
-$place = $WebPage->escapeString($people->getPlaceOfBirth());
-$birthday = $WebPage->escapeString($people->getBirthday());
-$deathday = $WebPage->escapeString($people->getDeathday());
-$biography = $WebPage->escapeString($people->getBiography());
+$place = $webPage->escapeString($people->getPlaceOfBirth());
+$birthday = $webPage->escapeString($people->getBirthday());
+$deathday = $webPage->escapeString($people->getDeathday());
+$biography = $webPage->escapeString($people->getBiography());
 
 $html = <<<HTML
         <div class='people-info'>
@@ -81,23 +81,23 @@ $html = <<<HTML
 
 HTML;
 
-$WebPage->appendContent($html);
+$webPage->appendContent($html);
 
-$apparitions = MovieCollection::findByPeopleId($peopleId);
+$filmography = MovieCollection::findByPeopleId($peopleId);
 
-foreach ($apparitions as $movie) {
+foreach ($filmography as $movie) {
     $movieId = $movie->getId();
-    $titre = $WebPage->escapeString($movie->getTitle());
-    $date = $WebPage->escapeString($movie->getReleaseDate());
-    $role = $WebPage->escapeString(Cast::getRoleById($movieId, $peopleId));
+    $titre = $webPage->escapeString($movie->getTitle());
+    $date = $webPage->escapeString($movie->getReleaseDate());
+    $role = $webPage->escapeString(Cast::getRoleById($movieId, $peopleId));
 
 
     $html = <<<HTML
-        <a href='movie.php?movieId={$movieId}' class="film-info">
+        <a href='movie.php?movieId={$movieId}' class="movie-info">
             <div class="picture">
                 <img src="image.php?imageId={$movie->getPosterId()}&type=m" alt="poster du film">
             </div>
-            <div class="film-info-sub">
+            <div class="movie-info-sub">
                 <section class="title-date">
                     <section class="title">{$titre}</section>
                     <section class="date">{$date}</section>
@@ -107,7 +107,7 @@ foreach ($apparitions as $movie) {
         </a>
 
 HTML;
-    $WebPage->appendContent($html);
+    $webPage->appendContent($html);
 
 }
 
@@ -119,8 +119,9 @@ $html = <<<HTML
         <h1>Dernière Modification : {$modification}</h1>
     </div>
 HTML;
-$WebPage->appendContent($html);
+$webPage->appendContent($html);
 
 
-$html = $WebPage->toHTML();
-echo($html);
+$html = $webPage->toHTML();
+
+echo $html;
