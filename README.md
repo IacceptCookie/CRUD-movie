@@ -57,7 +57,7 @@ Notre projet est composé de cinq classes qui se situent dans src/Database/Entit
 * La classe People qui contient les informations des acteurs, des accesseurs à ces informations et une méthode ``findById`` qui permet de retourner les informations d'une personne à partir de son id.
 * La classe Movie qui contient les informations sur les films avec des accesseurs et des modificateurs ainsi qu'une méthode ``findById`` qui permet de retourner les informations d'un film à partir de son id. Cette classe possède aussi des opérations CRUD qui permettent de supprimer, créer, mettre à jour, modifier et sauvegarder un film.
 * La classe Image qui contient deux paramètres d'instance (id et jpeg), leurs accesseurs, et une méthode ``findById`` qui permet de retourner un objet image à partir de son id.
-* La classe Genre qui contient deux paramètres d'instance (id et name) ainsi que leurs accesseurs.
+* La classe Genre qui contient deux paramètres d'instance (id et name) ainsi que leurs accesseurs. Elle contient également une méthode ``findById`` qui permet de retrouver le nom d'un genre à l'aide de l'id passé en paramètre
 * La classe Cast qui est décrite par cinq attributs et qui contient une méthode ``getRoleById`` et qui permet d'obtenir la valeur du rôle à parti de l'id d'un film et l'id d'une personne.
 
 ### Collections
