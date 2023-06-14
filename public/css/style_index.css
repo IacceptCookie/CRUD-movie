@@ -76,7 +76,7 @@ h1 {
     border-radius: 3px;
 }
 
-.films {
+.movies {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -116,7 +116,7 @@ h1 {
     transition-duration: 0.1s;
 }
 
-.film {
+.movie {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -128,7 +128,7 @@ h1 {
     border-radius: 3px;
 }
 
-.film:hover {
+.movie:hover {
     background-color: #A58867;
     transition-duration: 0.1s;
 }
@@ -175,7 +175,7 @@ h1 {
 }
 
 @media only screen and (min-height: 600px) {
-    .films {
+    .movies {
         max-height: 76%;
     }
 }
@@ -185,12 +185,12 @@ h1 {
         border-radius: 5px;
     }
 
-    .films {
+    .movies {
         border-right: 5px;
         padding: 2%;
     }
 
-    .film {
+    .movie {
         border-radius: 5px;
     }
 
@@ -205,7 +205,7 @@ h1 {
 
 @media only screen and (min-width: 600px) {
 
-    .film {
+    .movie {
         flex-basis: 25%;
     }
 }
@@ -215,12 +215,12 @@ h1 {
         border-radius: 10px;
     }
 
-    .films {
+    .movies {
         border-right: 10px;
         padding: 1%;
     }
 
-    .film, .append, .filter>form {
+    .movie, .append, .filter>form {
         border-radius: 10px;
     }
 
@@ -239,7 +239,7 @@ h1 {
 }
 
 @media only screen and (min-width: 1000px) {
-    .film {
+    .movie {
         flex-basis: 20%;
     }
 
