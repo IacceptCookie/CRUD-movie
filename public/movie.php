@@ -37,6 +37,7 @@ $WebPage->appendCssUrl("css/style_movie.css");
 $WebPage->appendContent(
     <<<HTML
 <div class="header">
+        <a href="index.php" class="home"><img src="img/page-daccueil.png"></a>
         <h1>Films - {$title}</h1>
     </div>
     <div class="film">

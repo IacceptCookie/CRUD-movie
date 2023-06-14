@@ -36,6 +36,12 @@ h1 {
     border-radius: 3px;
 }
 
+.header .home img {
+    position: absolute;
+    width: 5%;
+    height: auto;
+}
+
 .film {
     display: flex;
     flex-direction: column;

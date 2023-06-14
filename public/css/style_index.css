@@ -29,11 +29,18 @@ h1 {
 .header {
     display: flex;
     align-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     max-height: 10%;
     box-sizing: border-box;
     background-color: #D57A66;
     border-radius: 3px;
+}
+
+.header .home img {
+    position: absolute;
+    width: 5%;
+    height: auto;
 }
 
 .films {
