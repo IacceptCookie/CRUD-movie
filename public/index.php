@@ -19,7 +19,7 @@ $WebPage->appendContent(
     <div class="header">
             <a href="index.php" class="home"><img src="img/page-daccueil.png"></a>
             <h1>Films</h1>
-        </div>
+        
        
 
 HTML
@@ -38,7 +38,7 @@ else {
 
 $WebPage->appendContent(
     <<<HTML
-    <div class="filtrage">
+    <div class="filter">
         <form action="index.php" method="get">
             <select name="genre">
                 <option value="">Tous les genres</option>
@@ -55,6 +55,7 @@ $WebPage->appendContent(<<<HTML
             </select>
             <input type="submit" value="Valider">
         </form>
+    </div>
     </div>
     <div class="films">
 
