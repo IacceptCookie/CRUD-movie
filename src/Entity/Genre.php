@@ -36,7 +36,7 @@ class Genre
      * @param int $id
      * @return mixed
      */
-    public function findById(int $id): Genre
+    public static function findById(int $id): Genre
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<SQL
