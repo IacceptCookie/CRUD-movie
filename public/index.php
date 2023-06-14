@@ -8,17 +8,17 @@ use Entity\Collection\MovieCollection;
 use Entity\Genre;
 use Html\WebPage;
 
-$WebPage = new WebPage();
-$WebPage->setTitle("Films");
-$WebPage->appendCssUrl("css/style_index.css");
+$webPage = new WebPage();
+$webPage->setTitle("Films");
+$webPage->appendCssUrl("css/style_index.css");
 
 
 
-$WebPage->appendContent(
+$webPage->appendContent(
     <<<HTML
     <div class="header">
             <a href="index.php" class="home">
-                <img src="img/page-daccueil.png" alt="home">
+                <img src="img/homePage.png" alt="home">
             </a>
             <h1>Films</h1>
 
@@ -27,29 +27,35 @@ HTML
 
 if (isset($_GET['genre']) && $_GET['genre'] !== '') {
     $genreId = (int)$_GET['genre'];
-    $films = MovieCollection::findByGenreId($genreId);
+    $movies = MovieCollection::findByGenreId($genreId);
     //$genre = Genre::findById($genreId);
-    //$WebPage->setTitle("Films - {$genre->getName()}");
+    //$webPage->setTitle("Films - {$genre->getName()}");
 } else {
-    $films = MovieCollection::findAll();
+    $movies = MovieCollection::findAll();
 }
 
-$WebPage->appendContent(
+$webPage->appendContent(
     <<<HTML
             <div class="filter">
                 <form action="index.php" method="get">
                     <select name="genre">
-                        <option value="">Tout les genres</option>
+                        <option value="">Tous les genres</option>
+
 HTML
 );
 
 $genres = GenreCollection::findAll();
 
 foreach ($genres as $genre) {
-    $WebPage->appendContent("<option value='{$genre->getId()}'>{$WebPage->escapeString($genre->getName())}</option>");
+    $webPage->appendContent(
+        <<<HTML
+<option value='{$genre->getId()}'>{$webPage->escapeString($genre->getName())}</option>
+
+HTML
+    );
 }
 
-$WebPage->appendContent(<<<HTML
+$webPage->appendContent(<<<HTML
                     </select>
                     <input type="submit" value="Valider">
                 </form>
@@ -57,10 +63,10 @@ $WebPage->appendContent(<<<HTML
 
 HTML);
 
-$WebPage->appendContent(
+$webPage->appendContent(
     <<<HTML
         </div>
-        <div class="films">
+        <div class="movies">
             <div class="append">
                 <a href="admin/movie-form.php">Ajouter</a>
             </div>
@@ -69,28 +75,28 @@ HTML
 );
 
 
-foreach ($films as $film) {
-    $id = $film->getId();
-    $imageId = $film->getPosterId();
+foreach ($movies as $movie) {
+    $movieId = $movie->getId();
+    $imageId = $movie->getPosterId();
 
-    $titre = "{$film->getTitle()}";
-    $protectTitle =$WebPage->escapeString($titre);
+    $title = "{$movie->getTitle()}";
+    $protectedTitle =$webPage->escapeString($title);
 
     $html = <<<HTML
-            <a href='movie.php?movieId={$id}' class='film'>
+            <a href='movie.php?movieId={$movieId}' class='movie'>
                 <section class="poster">
                     <img src='image.php?imageId={$imageId}&type=m' alt='poster de film'>
                 </section>
                 <section class="title">
-                    {$protectTitle}
+                    {$protectedTitle}
                 </section>
             </a>
 
 HTML;
-    $WebPage->appendContent($html);
+    $webPage->appendContent($html);
 }
 
-$modification = $WebPage->getLastModification();
+$modification = $webPage->getLastModification();
 
 $html = <<<HTML
         </div>
@@ -99,6 +105,6 @@ $html = <<<HTML
         </div>
 HTML;
 
-$WebPage->appendContent($html);
+$webPage->appendContent($html);
 
-echo $WebPage->toHTML();
+echo $webPage->toHTML();
