@@ -28,7 +28,6 @@ h1 {
 
 .header {
     display: flex;
-    flex-direction: row;
     align-content: center;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -42,7 +41,6 @@ h1 {
     position: absolute;
     width: 5%;
     height: auto;
-    border-color: black;
 }
 
 .films {
