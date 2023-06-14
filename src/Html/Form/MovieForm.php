@@ -119,8 +119,8 @@ HTML;
             $id = intval($_POST['id']);
         }
 
-        if (!(ctype_digit($_GET['posterId']))) {
-            throw new ParameterException();
+        if (!(isset($_POST['posterId']) and ctype_digit($_POST['posterId']))) {
+            $posterId = null;
         } else {
             $posterId = intval($this->stripTagsAndTrim($_POST['posterId']));
         }
@@ -131,13 +131,13 @@ HTML;
             $orginalLanguage = $this->stripTagsAndTrim($_POST['originalLanguage']);
         }
 
-        if (!(isset($_POST['originalTitle']) and $_POST['originalTitle'] === '')) {
+        if (!(isset($_POST['originalTitle']) and $_POST['originalTitle'] ==! '')) {
             throw new ParameterException();
         } else {
             $orginalTitle = $this->stripTagsAndTrim($_POST['originalTitle']);
         }
 
-        if (!(isset($_POST['overview']) and $_POST['overview'] === '')) {
+        if (!(isset($_POST['overview']) and $_POST['overview'] ==! '')) {
             throw new ParameterException();
         } else {
             $overview = $this->stripTagsAndTrim($_POST['overview']);
@@ -147,10 +147,7 @@ HTML;
             throw new ParameterException();
         } else {
             $date = explode('-', $_POST['releaseDate']);
-            for ($i = 0; $i = count($date); $i++) {
-                $date[$i] = intval($date[$i]);
-            }
-            if (count($date) == 3 and checkdate((int)$date[1], (int)$date[2], (int)$date[0])) {
+            if (count($date) == 3 and checkdate(intval($date[1]), intval($date[2]), intval($date[0]))) {
                 $releaseDate = $this->stripTagsAndTrim($_POST['releaseDate']);
             } else {
                 throw new ParameterException();
@@ -163,13 +160,13 @@ HTML;
             $runtime = intval($this->stripTagsAndTrim($_POST['runtime']));
         }
 
-        if (!(isset($_POST['tagline']) and $_POST['tagline'] === '')) {
+        if (!(isset($_POST['tagline']) and $_POST['tagline'] ==! '')) {
             throw new ParameterException();
         } else {
             $tagline = $this->stripTagsAndTrim($_POST['tagline']);
         }
 
-        if (!(isset($_POST['title']) and $_POST['title'] === '')) {
+        if (!(isset($_POST['title']) and $_POST['title'] ==! '')) {
             throw new ParameterException();
         } else {
             $title = $this->stripTagsAndTrim($_POST['title']);
