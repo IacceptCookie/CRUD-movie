@@ -20,7 +20,9 @@ $WebPage->appendContent(
             <h1>Films</h1>
         </div>
         <div class="films">
-
+            <div class="append">
+                <a href="admin/movie-form.php">Ajouter</a>
+            </div>
 HTML
 );
 
