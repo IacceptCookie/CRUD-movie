@@ -52,6 +52,35 @@ h1 {
     box-sizing: border-box;
     background-color: #CA6680;
     border-radius: 3px;
+    flex: 1;
+}
+
+.append {
+    display: flex;
+    box-sizing: border-box;
+    flex-basis: 90%;
+    background-color: #EDC79B;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 3px;
+    justify-content: space-around;
+}
+
+.append>a {
+    text-decoration: none;
+    color: black;
+    background-color: #73BD88;
+    border-radius: 3px;
+    padding: 1%;
+    font-size: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.append>a:hover {
+    background-color: #63A375;
+    transition-duration: 0.1s;
 }
 
 .film-info {
@@ -63,6 +92,7 @@ h1 {
     padding: 1%;
     background-color: #EDC79B;
     border-radius: 3px;
+    flex: 1;
 }
 
 .poster {
@@ -216,7 +246,7 @@ h1 {
 }
 
 @media only screen and (min-width: 400px) {
-    .header {
+    .header, .append {
         border-radius: 5px;
     }
 
@@ -230,7 +260,7 @@ h1 {
         border-radius: 5px;
     }
 
-    .role, .name, .title, .date, .resume, .originalTitle, .slogan {
+    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .append>a {
         border-radius: 5px;
     }
 
@@ -259,8 +289,8 @@ h1 {
         border-radius: 10px;
     }
 
-    .film {
-        border-right: 10px;
+    .film, .append {
+        border-radius: 10px;
     }
 
     .film-info, .acteur-info {
@@ -271,7 +301,7 @@ h1 {
         border-radius: 10px;
     }
 
-    .role, .name, .title, .date, .resume, .originalTitle, .slogan {
+    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .append>a {
         border-radius: 10px;
         font-size: 18px;
     }
@@ -288,7 +318,7 @@ h1 {
         max-height: 76%;
     }
 
-    .role, .name, .title, .date, .resume, .originalTitle, .slogan {
+    .role, .name, .title, .date, .resume, .originalTitle, .slogan, .append>a {
         font-size: 24px;
     }
 

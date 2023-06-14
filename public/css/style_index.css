@@ -63,6 +63,32 @@ h1 {
     justify-content: space-around;
     background-color: #CA6680;
     border-radius: 3px;
+    flex: 1;
+}
+
+.append {
+    display: flex;
+    box-sizing: border-box;
+    flex-basis: 90%;
+    background-color: #EDC79B;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 3px;
+    justify-content: center;
+}
+
+.append>a {
+    text-decoration: none;
+    color: black;
+    background-color: #73BD88;
+    border-radius: 3px;
+    padding: 1%;
+    font-size: 12px;
+}
+
+.append>a:hover {
+    background-color: #63A375;
+    transition-duration: 0.1s;
 }
 
 .film {
@@ -143,7 +169,7 @@ h1 {
         border-radius: 5px;
     }
 
-    .title {
+    .title, .append, .append>a {
         border-radius: 5px;
     }
 
@@ -169,7 +195,7 @@ h1 {
         padding: 1%;
     }
 
-    .film {
+    .film, .append {
         border-radius: 10px;
     }
 
@@ -177,7 +203,7 @@ h1 {
         border-radius: 10px;
     }
 
-    .title {
+    .title, .append>a {
         border-radius: 10px;
         font-size: 18px;
     }
@@ -192,7 +218,7 @@ h1 {
         flex-basis: 20%;
     }
 
-    .title {
+    .title, .append>a {
         font-size: 24px;
     }
 

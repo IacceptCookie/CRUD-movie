@@ -37,10 +37,14 @@ $WebPage->appendCssUrl("css/style_movie.css");
 $WebPage->appendContent(
     <<<HTML
 <div class="header">
-        <a href="index.php" class="home"><img src="img/page-daccueil.png"></a>
+        <a href="index.php" class="home"><img src="img/page-daccueil.png" alt="home"></a>
         <h1>Films - {$title}</h1>
     </div>
     <div class="film">
+        <div class="append">
+            <a href="admin/movie-form.php?movieId={$movieId}">Modifier</a>
+            <a href="admin/movie-delete.php?movieId={$movieId}">Supprimer</a>
+        </div>
 
 HTML
 );
