@@ -17,13 +17,10 @@ $WebPage->appendCssUrl("css/style_index.css");
 $WebPage->appendContent(
     <<<HTML
     <div class="header">
-            <a href="index.php" class="home"><img src="img/page-daccueil.png" alt="home"></a>
+            <a href="index.php" class="home">
+                <img src="img/page-daccueil.png" alt="home">
+            </a>
             <h1>Films</h1>
-        </div>
-        <div class="films">
-            <div class="append">
-                <a href="admin/movie-form.php">Ajouter</a>
-            </div>
 
 HTML
 );
@@ -31,20 +28,18 @@ HTML
 if (isset($_GET['genre']) && $_GET['genre'] !== '') {
     $genreId = (int)$_GET['genre'];
     $films = MovieCollection::findByGenreId($genreId);
-
-    //$title = " - {$genre->getName()}";
-}
-else {
+    //$genre = Genre::findById($genreId);
+    //$WebPage->setTitle("Films - {$genre->getName()}");
+} else {
     $films = MovieCollection::findAll();
-    $title = '';
 }
 
 $WebPage->appendContent(
     <<<HTML
-    <div class="filter">
-        <form action="index.php" method="get">
-            <select name="genre">
-                <option value="">Tous les genres</option>
+            <div class="filter">
+                <form action="index.php" method="get">
+                    <select name="genre">
+                        <option value="">Tout les genres</option>
 HTML
 );
 
@@ -55,14 +50,23 @@ foreach ($genres as $genre) {
 }
 
 $WebPage->appendContent(<<<HTML
-            </select>
-            <input type="submit" value="Valider">
-        </form>
-    </div>
-    </div>
-    <div class="films">
+                    </select>
+                    <input type="submit" value="Valider">
+                </form>
+            </div>
 
 HTML);
+
+$WebPage->appendContent(
+    <<<HTML
+        </div>
+        <div class="films">
+            <div class="append">
+                <a href="admin/movie-form.php">Ajouter</a>
+            </div>
+
+HTML
+);
 
 
 foreach ($films as $film) {
