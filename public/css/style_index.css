@@ -43,6 +43,13 @@ h1 {
     height: auto;
 }
 
+.filtrage {
+    display: flex;
+    justify-content: end;
+    align-content: center;
+
+}
+
 .films {
     display: flex;
     flex-direction: row;
