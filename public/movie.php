@@ -78,7 +78,7 @@ foreach ($casting as $people) {
     $name = $WebPage->escapeString($people->getName());
 
     $html = <<<HTML
-        <div class="acteur-info">
+        <a href='people.php?peopleId={$peopleId}' class="acteur-info">
             <div class="picture">
                 <img src="image.php?imageId={$people->getAvatarId()}&type=p" alt="photo de l'acteur">
             </div>
@@ -86,7 +86,7 @@ foreach ($casting as $people) {
                 <section class="role">{$role}</section>
                 <section class="name">{$name}</section>
             </div>
-        </div>
+        </a>
 
 HTML;
 
