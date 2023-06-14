@@ -13,7 +13,7 @@ try {
         $movie = null;
     } else {
         if (!(ctype_digit($_GET['movieId']))) {
-            throw new ParameterException("Parameter artistId should be an integer");
+            throw new ParameterException("Parameter movieId should be an integer");
         } else {
             $movieId = intval($_GET['movieId']);
             $movie = Movie::findById($movieId);
