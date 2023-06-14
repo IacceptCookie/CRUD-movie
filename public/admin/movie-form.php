@@ -31,6 +31,7 @@ try {
     $webPage->appendContent(
         <<<HTML
 <div class="header">
+        <a href="../index.php" class="home"><img src="../img/page-daccueil.png"></a>
         <h1>{$title}</h1>
     </div>
     <div class="form">
