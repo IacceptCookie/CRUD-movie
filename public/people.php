@@ -36,7 +36,8 @@ $WebPage->appendCssUrl("css/style_people.css");
 
 $WebPage->appendContent(
     <<<HTML
-<div class="header">
+    <div class="header">
+        <a href="index.php" class="home"><img src="img/page-daccueil.png"></a>
         <h1>Films - {$name}</h1>
     </div>
     <div class="personne">
