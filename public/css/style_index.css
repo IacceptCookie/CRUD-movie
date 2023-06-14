@@ -41,7 +41,7 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     overflow: auto;
-    max-height: 76%;
+    max-height: 70%;
     margin-bottom: 1%;
     margin-top: 1%;
     box-sizing: border-box;
@@ -106,6 +106,12 @@ h1 {
     background-color: #D57A66;
     border-radius: 3px;
     justify-self: flex-end;
+}
+
+@media only screen and (min-height: 600px) {
+    .films {
+        max-height: 76%;
+    }
 }
 
 @media only screen and (min-width: 400px) {
