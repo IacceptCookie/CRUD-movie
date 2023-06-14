@@ -9,8 +9,8 @@ use Throwable;
 
 class EntityNotFoundException extends OutOfBoundsException
 {
-    public function __construct(string $message = "", int $code = 0, Throwable $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    /**
+     * Classe EntityNotFoundException. Cette exception est déclenchée quand une entité n'est pas trouvé dans la base de
+     * donnée.
+     */
 }
