@@ -26,7 +26,7 @@ try {
     $title = $webPage->escapeString($title);
     $webPage->setTitle($title);
 
-    $webPage->appendCssUrl("css/style_form.css");
+    $webPage->appendCssUrl("../css/style_form.css");
 
     $webPage->appendContent(
         <<<HTML
