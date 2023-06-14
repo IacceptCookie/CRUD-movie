@@ -16,7 +16,7 @@ $films = MovieCollection::findAll();
 $WebPage->appendContent(
     <<<HTML
     <div class="header">
-            <a href="index.php" class="home"><img src="img/page-daccueil.png"></a>
+            <a href="index.php" class="home"><img src="img/page-daccueil.png" alt="home"></a>
             <h1>Films</h1>
         </div>
         <div class="films">
