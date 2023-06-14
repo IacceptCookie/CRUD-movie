@@ -314,7 +314,7 @@ SQL
      * @return Movie nouvelle instance
      */
 
-    public static function create(int $id, ?int $posterId = null, string $originalLanguage, string $originalTitle, string $overview, string $releaseDate, int $runtime, string $tagline, string $title): Movie
+    public static function create(?int $id, ?int $posterId = null, string $originalLanguage, string $originalTitle, string $overview, string $releaseDate, int $runtime, string $tagline, string $title): Movie
     {
         $new_Movie = new Movie();
         $new_Movie->setId($id)->setPosterId($posterId)->setOriginalLanguage($originalLanguage)->setOriginalTitle($originalTitle)->setOverview($overview)->setReleaseDate($releaseDate)->setRuntime($runtime)->setTagline($tagline)->setTitle($title);
