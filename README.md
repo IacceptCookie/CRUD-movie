@@ -8,9 +8,9 @@ __PHILIPPE Alexandre__ : __phil0105__
 
 ## Installation du projet :
 
-* pour cloner le [dépôt](https://iut-info.univ-reims.fr/gitlab/phil0105/sae2-01.git)
+* pour cloner le [dépôt](https://github.com/IacceptCookie/CRUD-movie.git)
 ```
-git clone https://iut-info.univ-reims.fr/gitlab/phil0105/sae2-01.git
+git clone https://github.com/IacceptCookie/CRUD-movie.git
 ```
 
 * pour installer les éléments composer :
